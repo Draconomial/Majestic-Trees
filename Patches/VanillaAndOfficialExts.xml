@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <!-- <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>ComigoGames.Textures.Trees</modId>
+        <key>useVanilla</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue> -->
+            <!-- Reset default drawing layer to Pawn, to hide buildings, chunks and items. -->
+            <Operation Class="PatchOperationAdd">
+                <!-- Hi spaghetti my old friend -->
+                <!-- I've come to talk to you again -->
+                <xpath>/Defs/ThingDef[defName="Plant_TreeAnima" or defName="Plant_TreeBamboo" or defName="Plant_TreeBirch" or defName="Plant_TreeCecropia" or defName="Plant_TreeDrago" or defName="Plant_TreeDrago" or defName="Plant_TreeMaple" or defName="Plant_TreeOak" or defName="Plant_TreePalm" or defName="Plant_TreePine" or defName="Plant_TreePoplar" or defName="Plant_TreeTeak" or defName="Plant_TreeWillow" or defName="Plant_TreeCypress" or defName="Plant_TreeGauranlen"]</xpath>
+                <success>Normal</success>
+                <value>
+                    <altitudeLayer>Pawn</altitudeLayer>
+                    <thingClass>COMIGOMajesticTrees.MajesticTree</thingClass>
+                </value>
+            </Operation>
+            <!-- Find and replace default tree size range -->
+            <Operation Class="PatchOperationReplace">
+                <xpath>/Defs/ThingDef[defName="Plant_TreeAnima" or defName="Plant_TreeBamboo" or defName="Plant_TreeBirch" or defName="Plant_TreeCecropia" or defName="Plant_TreeDrago" or defName="Plant_TreeDrago" or defName="Plant_TreeMaple" or defName="Plant_TreeOak" or defName="Plant_TreePalm" or defName="Plant_TreePine" or defName="Plant_TreePoplar" or defName="Plant_TreeTeak" or defName="Plant_TreeWillow" or defName="Plant_TreeCypress" or defName="Plant_TreeGauranlen"]/plant/visualSizeRange</xpath>
+                <success>Normal</success>
+                <value>
+                    <visualSizeRange>0.9~5.0</visualSizeRange>
+                </value>
+            </Operation>
+            <!-- Thinner shadows -->
+            <Operation Class="PatchOperationReplace">
+                <xpath>/Defs/ThingDef[defName="Plant_TreeAnima" or defName="Plant_TreeBamboo" or defName="Plant_TreeBirch" or defName="Plant_TreeCecropia" or defName="Plant_TreeDrago" or defName="Plant_TreeDrago" or defName="Plant_TreeMaple" or defName="Plant_TreeOak" or defName="Plant_TreePalm" or defName="Plant_TreePine" or defName="Plant_TreePoplar" or defName="Plant_TreeTeak" or defName="Plant_TreeWillow" or defName="Plant_TreeCypress" or defName="Plant_TreeGauranlen"]/graphicData/shadowData/volume</xpath>
+                <success>Normal</success>
+                <value>
+                    <volume>(0.1, 0.35, 0.1)</volume>
+                </value>
+            </Operation>
+
+            <!-- Some trees don't have a preset visual size range at all -->
+            <Operation Class="PatchOperationAdd">
+                <xpath>/Defs/ThingDef[defName="Plant_TreeAnima" or defName="Plant_TreeBamboo" or defName="Plant_TreeBirch" or defName="Plant_TreeCecropia" or defName="Plant_TreeDrago" or defName="Plant_TreeDrago" or defName="Plant_TreeMaple" or defName="Plant_TreeOak" or defName="Plant_TreePalm" or defName="Plant_TreePine" or defName="Plant_TreePoplar" or defName="Plant_TreeTeak" or defName="Plant_TreeWillow" or defName="Plant_TreeCypress" or defName="Plant_TreeGauranlen"]/plant[not(visualSizeRange)]</xpath>
+                <success>Normal</success>
+                <value>
+                    <visualSizeRange>0.9~5.0</visualSizeRange>
+                </value>
+            </Operation>
+            <!-- Bamboo needs to be smaller -->
+            <Operation Class="PatchOperationReplace">
+                <xpath>/Defs/ThingDef[defName="Plant_TreeBamboo"]/plant/visualSizeRange</xpath>
+                <success>Normal</success>
+                <value>
+                    <visualSizeRange>0.7~3.5</visualSizeRange>
+                </value>
+            </Operation>
+            <!-- Birch is a bit smaller -->
+            <Operation Class="PatchOperationReplace">
+                <xpath>/Defs/ThingDef[defName="Plant_TreeBirch"]/plant/visualSizeRange</xpath>
+                <success>Normal</success>
+                <value>
+                    <visualSizeRange>0.9~4.2</visualSizeRange>
+                </value>
+            </Operation>
+            <!-- Oak and willow need to be bigger, due to textures' content proportions -->
+            <Operation Class="PatchOperationReplace">
+                <xpath>/Defs/ThingDef[defName="Plant_TreeOak"]/plant/visualSizeRange |
+                    /Defs/ThingDef[defName="Plant_TreeWillow"]/plant/visualSizeRange</xpath>
+                <success>Normal</success>
+                <value>
+                    <visualSizeRange>1.5~7.0</visualSizeRange>
+                </value>
+            </Operation>
+            <!-- Remove the instruction to use random textures.
+                Neither I want to draw variants, nor I want to duplicate textures to overwrite the vanilla ones. -->
+            <Operation Class="PatchOperationReplace">
+                <xpath>/Defs/ThingDef[defName="Plant_TreeAnima" or defName="Plant_TreeBamboo" or defName="Plant_TreeBirch" or defName="Plant_TreeCecropia" or defName="Plant_TreeDrago" or defName="Plant_TreeDrago" or defName="Plant_TreeMaple" or defName="Plant_TreeOak" or defName="Plant_TreePalm" or defName="Plant_TreePine" or defName="Plant_TreePoplar" or defName="Plant_TreeTeak" or defName="Plant_TreeWillow" or defName="Plant_TreeCypress" or defName="Plant_TreeGauranlen"]/graphicData/graphicClass</xpath>
+                <success>Normal</success>
+                <value>
+                    <graphicClass>Graphic_Single</graphicClass>
+                </value>
+            </Operation>
+        <!-- </caseTrue>
+    </Operation> -->
+</Patch>

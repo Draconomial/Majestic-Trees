@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>ComigoGames.Textures.Trees</modId>
+        <key>useVanilla</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue>
+            <Operation Class="PatchOperationFindMod">
+                <mods>
+                    <li>VGP Vegetable Garden</li>
+                </mods>
+                <match Class="PatchOperationSequence">
+                    <operations>
+                        <!-- Change the texture path back to vanilla location. -->
+                        <li Class="PatchOperationReplace">
+                            <success>Normal</success>
+                            <xpath>/Defs/ThingDef[defName="Plant_TreeBamboo"]/graphicData/texPath</xpath>
+                            <value>
+                                <texPath>Things/Plant/TreeBamboo</texPath>
+                            </value>
+                        </li>
+                        <!-- Forget the immature version -->
+                        <li Class="PatchOperationRemove">
+                            <success>Normal</success>
+                            <xpath>/Defs/ThingDef[defName="Plant_TreeBamboo"]/plant/immatureGraphicPath</xpath>
+                        </li>
+                    </operations>
+                </match>
+            </Operation>
+        </caseTrue>
+    </Operation>
+</Patch>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <!-- <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>ComigoGames.Textures.Trees</modId>
+        <key>useOcularForest</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue> -->
+            <Operation Class="PatchOperationFindMod">
+                <mods>
+                    <li>Alpha Animals</li>
+                </mods>
+                <match Class="PatchOperationSequence">
+                    <operations>
+                        <!-- Reset default drawing layer to Pawn, to hide buildings, chunks and items. -->
+                        <li Class="PatchOperationReplace">
+                            <success>Normal</success>
+                            <xpath>/Defs/ThingDef[defName="AA_AlienTree"]/altitudeLayer</xpath>
+                            <value>
+                                <altitudeLayer>Pawn</altitudeLayer>
+                                <thingClass>COMIGOMajesticTrees.MajesticTree</thingClass>
+                            </value>
+                        </li>
+                        <!-- Add custom default tree size range -->
+                        <li Class="PatchOperationReplace">
+                            <success>Normal</success>
+                            <xpath>/Defs/ThingDef[defName="AA_AlienTree"]/plant/visualSizeRange</xpath>
+                            <value>
+                                <visualSizeRange>1.5~7.0</visualSizeRange>
+                            </value>
+                        </li>
+                        <!-- Thinner shadows -->
+                        <li Class="PatchOperationReplace">
+                            <success>Normal</success>
+                            <xpath>/Defs/ThingDef[defName="AA_AlienTree"]/graphicData/shadowData/volume</xpath>
+                            <value>
+                                <volume>(0.1, 0.35, 0.1)</volume>
+                            </value>
+                        </li>
+                        <!-- Remove the instruction to use random textures.
+                            Neither I want to draw variants, nor I want to duplicate textures to overwrite the vanilla ones. -->
+                        <li Class="PatchOperationReplace">
+                            <success>Normal</success>
+                            <xpath>/Defs/ThingDef[defName="AA_AlienTree"]/graphicData/graphicClass</xpath>
+                            <value>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </value>
+                        </li>
+                    </operations>
+                </match>
+            </Operation>
+        <!-- </caseTrue>
+    </Operation> -->
+</Patch>

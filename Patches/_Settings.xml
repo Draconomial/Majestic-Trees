@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <Operation Class="XmlExtensions.UseSetting">
+        <modId>ComigoGames.Textures.Trees</modId>
+        <key>cursorSize</key>
+        <apply></apply>
+        <defaultValue>1</defaultValue>
+    </Operation>
+
+    <Operation Class="XmlExtensions.UseSetting">
+        <modId>ComigoGames.Textures.Trees</modId>
+        <key>cursorResolution</key>
+        <apply></apply>
+        <defaultValue>1</defaultValue>
+    </Operation>
+    <Operation Class="XmlExtensions.CreateSettings">
+        <modId>ComigoGames.Textures.Trees</modId> <!--MUST be the same as the one entered earlier-->
+        <label>Comigo's Majestic Trees</label> <!-- This is what displays as your mod's name-->
+        <settings>
+            <li Class="XmlExtensions.Setting.Text">
+                <text>See-through mode hides trees…</text>
+                <font>Medium</font>
+            </li>
+            <li Class="XmlExtensions.Setting.Text">
+                <text>(You can turn the see-through mode on and off in the bottom-right corner)</text>
+                <font>Tiny</font>
+            </li>
+            <li Class="XmlExtensions.Setting.Gap">
+                <spacing>8</spacing>
+            </li>
+            <li Class="XmlExtensions.Setting.RadioButtons">
+                <key>seeThroughCursor</key>
+                <defaultValue>true</defaultValue>
+                <buttons>
+                    <li>
+                        <label>On the whole map</label>
+                        <value>false</value>
+                    </li>
+                    <li>
+                        <label>Under the cursor</label>
+                        <value>true</value>
+                    </li>
+                </buttons>
+            </li>
+            <li Class="XmlExtensions.Setting.ToggleableSettings">
+                <key>seeThroughCursor</key>
+                <caseTrue>
+                    <li Class="XmlExtensions.Setting.Gap">
+                        <spacing>12</spacing>
+                    </li>
+                    <li Class="XmlExtensions.Setting.Slider">
+                        <key>cursorSize</key>
+                        <label>Size of the effect ({cursorSize})</label>
+                        <defaultValue>4.5</defaultValue>
+                        <min>2</min>
+                        <max>16</max>
+                    </li>
+                    <li Class="XmlExtensions.Setting.Slider">
+                        <key>cursorResolution</key>
+                        <label>Refresh period (lower is smoother but may be FPS-hungry, {cursorResolution})</label>
+                        <defaultValue>2</defaultValue>
+                        <min>1</min>
+                        <max>15</max>
+                    </li>
+                </caseTrue>
+                <caseFalse></caseFalse>
+            </li>
+            <!--<li Class="XmlExtensions.Setting.Gap" />
+            <li Class="XmlExtensions.Setting.Text">
+                <text>Enable for…</text>
+                <font>Medium</font>
+            </li>
+            <li Class="XmlExtensions.Setting.Text">
+                <text>(Restart required)</text>
+                <font>Tiny</font>
+            </li>
+            <li Class="XmlExtensions.Setting.Gap">
+                <spacing>8</spacing>
+            </li>
+            <li Class="XmlExtensions.Setting.Checkbox">
+                <key>useVanilla</key>
+                <label>Vanilla and DLC trees</label>
+                <defaultValue>true</defaultValue>
+            </li>
+            <li Class="XmlExtensions.Setting.Checkbox">
+                <key>useOcularForest</key>
+                <label>Ocular and Alien trees in Alpha Animals and Alpha Biomes</label>
+                <defaultValue>true</defaultValue>
+            </li>
+            <li Class="XmlExtensions.Setting.Checkbox">
+                <key>useAspenForest</key>
+                <label>Aspen Forests from ReGrowth collection</label>
+                <defaultValue>true</defaultValue>
+            </li>-->
+            <li Class="XmlExtensions.Setting.Gap" />
+            <li Class="XmlExtensions.Setting.Text">
+                <text>Misc</text>
+                <font>Medium</font>
+            </li>
+            <li Class="XmlExtensions.Setting.Checkbox">
+                <key>greenerSoil</key>
+                <label>Tint soil in green (restart required)</label>
+                <defaultValue>true</defaultValue>
+                <tooltip>Replaces textures of the regular and lichen-covered soil with a more greenish variant</tooltip>
+            </li>
+            <li Class="XmlExtensions.Setting.Gap" />
+            <li Class="XmlExtensions.Setting.ResetSettings" />
+            <li Class="XmlExtensions.Setting.Gap" />
+            <li Class="XmlExtensions.Setting.Text">
+                <text>(⊙ヮ⊙)/ Enjoy, lumberfoot!</text>
+                <font>Tiny</font>
+            </li>
+        </settings>
+    </Operation>
+</Patch>

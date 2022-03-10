@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+    <name>Comigo's Majestic Trees</name>
+    <author>Comigo Games</author>
+    <description>Essentially a texture pack that makes trees look more realistic and magnificent. Also has a special see-through mode in two variants.</description>
+    <packageId>ComigoGames.Textures.Trees</packageId>
+    <supportedVersions>
+        <li>1.3</li>
+    </supportedVersions>
+    <loadAfter>
+        <li>sarg.alphabiomes</li>
+        <li>Imranfish.XMLExtensions</li>
+    </loadAfter>
+    <modDependencies>
+        <li>
+            <packageId>Imranfish.XMLExtensions</packageId>
+            <displayName>XML Extensions</displayName>
+            <steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2574315206</steamWorkshopUrl>
+            <downloadUrl>https://github.com/15adhami/XmlExtensions/releases/latest</downloadUrl>
+        </li>
+        <li>
+            <packageId>brrainz.harmony</packageId>
+            <displayName>Harmony</displayName>
+            <steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2009463077</steamWorkshopUrl>
+            <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+        </li>
+    </modDependencies>
+</ModMetaData>

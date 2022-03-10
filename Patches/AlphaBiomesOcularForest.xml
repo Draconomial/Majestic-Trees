@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <!-- <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>ComigoGames.Textures.Trees</modId>
+        <key>useOcularForest</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue> -->
+            <Operation Class="PatchOperationFindMod">
+                <mods>
+                    <li>Alpha Biomes</li>
+                </mods>
+                <match Class="PatchOperationSequence">
+                    <operations>
+                        <!-- Reset default drawing layer to Pawn, to hide buildings, chunks and items. -->
+                        <li Class="PatchOperationReplace">
+                            <success>Normal</success>
+                            <xpath>/Defs/ThingDef[defName="AB_AlienTree" or defName="AB_HalfAlienTree" or defName="AB_GlobularPlant" or defName="AB_TentacularPlant"]/altitudeLayer</xpath>
+                            <value>
+                                <altitudeLayer>Pawn</altitudeLayer>
+                                <thingClass>COMIGOMajesticTrees.MajesticTree</thingClass>
+                            </value>
+                        </li>
+                        <!-- Add custom default tree size range -->
+                        <li Class="PatchOperationReplace">
+                            <success>Normal</success>
+                            <xpath>/Defs/ThingDef[defName="AB_AlienTree" or defName="AB_HalfAlienTree"]/plant/visualSizeRange</xpath>
+                            <value>
+                                <visualSizeRange>1.5~7.0</visualSizeRange>
+                            </value>
+                        </li>
+                        <!-- Add custom default tree size range -->
+                        <li Class="PatchOperationReplace">
+                            <success>Normal</success>
+                            <xpath>/Defs/ThingDef[defName="AB_TentacularPlant" or defName="AB_GlobularPlant"]/plant/visualSizeRange</xpath>
+                            <value>
+                                <visualSizeRange>0.9~4.2</visualSizeRange>
+                            </value>
+                        </li>
+                        <!-- Thinner shadows -->
+                        <li Class="PatchOperationReplace">
+                            <success>Normal</success>
+                            <xpath>/Defs/ThingDef[defName="AB_AlienTree" or defName="AB_HalfAlienTree"]/graphicData/shadowData/volume</xpath>
+                            <value>
+                                <volume>(0.1, 0.35, 0.1)</volume>
+                            </value>
+                        </li>
+                        <!-- Remove the instruction to use random textures.
+                            Neither I want to draw variants, nor I want to duplicate textures to overwrite the vanilla ones. -->
+                        <li Class="PatchOperationReplace">
+                            <success>Normal</success>
+                            <xpath>/Defs/ThingDef[defName="AB_AlienTree" or defName="AB_HalfAlienTree"]/graphicData/graphicClass</xpath>
+                            <value>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </value>
+                        </li>
+                    </operations>
+                </match>
+            </Operation>
+        <!-- </caseTrue>
+    </Operation> -->
+</Patch>
