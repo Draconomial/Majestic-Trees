@@ -13,7 +13,6 @@
                 <success>Normal</success>
                 <value>
                     <altitudeLayer>Pawn</altitudeLayer>
-                    <thingClass>COMIGOMajesticTrees.MajesticTree</thingClass>
                 </value>
             </Operation>
             <!-- Find and replace default tree size range -->
@@ -24,6 +23,17 @@
                     <visualSizeRange>0.9~5.0</visualSizeRange>
                 </value>
             </Operation>
+			
+			<!-- Add a mod extension to mark it transparent -->
+			<Operation Class="PatchOperationAddModExtension">
+				<xpath>/Defs/ThingDef[defName="Plant_TreeAnima" or defName="Plant_TreeBamboo" or defName="Plant_TreeBirch" or defName="Plant_TreeCecropia" or defName="Plant_TreeDrago" or defName="Plant_TreeDrago" or defName="Plant_TreeMaple" or defName="Plant_TreeOak" or defName="Plant_TreePalm" or defName="Plant_TreePine" or defName="Plant_TreePoplar" or defName="Plant_TreeTeak" or defName="Plant_TreeWillow" or defName="Plant_TreeCypress" or defName="Plant_TreeGauranlen"]</xpath>
+				<value>
+					<li Class="COMIGOMajesticTrees.PlantExtension">
+						<makeTransparent>true</makeTransparent>
+					</li>
+				</value>
+			</Operation>
+				
             <!-- Thinner shadows -->
             <Operation Class="PatchOperationReplace">
                 <xpath>/Defs/ThingDef[defName="Plant_TreeAnima" or defName="Plant_TreeBamboo" or defName="Plant_TreeBirch" or defName="Plant_TreeCecropia" or defName="Plant_TreeDrago" or defName="Plant_TreeDrago" or defName="Plant_TreeMaple" or defName="Plant_TreeOak" or defName="Plant_TreePalm" or defName="Plant_TreePine" or defName="Plant_TreePoplar" or defName="Plant_TreeTeak" or defName="Plant_TreeWillow" or defName="Plant_TreeCypress" or defName="Plant_TreeGauranlen"]/graphicData/shadowData/volume</xpath>
@@ -66,15 +76,7 @@
                     <visualSizeRange>1.5~7.0</visualSizeRange>
                 </value>
             </Operation>
-            <!-- Remove the instruction to use random textures.
-                Neither I want to draw variants, nor I want to duplicate textures to overwrite the vanilla ones. -->
-            <Operation Class="PatchOperationReplace">
-                <xpath>/Defs/ThingDef[defName="Plant_TreeAnima" or defName="Plant_TreeBamboo" or defName="Plant_TreeBirch" or defName="Plant_TreeCecropia" or defName="Plant_TreeDrago" or defName="Plant_TreeDrago" or defName="Plant_TreeMaple" or defName="Plant_TreeOak" or defName="Plant_TreePalm" or defName="Plant_TreePine" or defName="Plant_TreePoplar" or defName="Plant_TreeTeak" or defName="Plant_TreeWillow" or defName="Plant_TreeCypress" or defName="Plant_TreeGauranlen"]/graphicData/graphicClass</xpath>
-                <success>Normal</success>
-                <value>
-                    <graphicClass>Graphic_Single</graphicClass>
-                </value>
-            </Operation>
+
         <!-- </caseTrue>
     </Operation> -->
 </Patch>

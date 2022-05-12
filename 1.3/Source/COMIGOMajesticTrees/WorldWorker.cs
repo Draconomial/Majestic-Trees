@@ -12,7 +12,6 @@ namespace COMIGOMajesticTrees
         public static bool seeThroughCursor = true;
         public static int cursorResolution = 1;
         public static double cursorSize = 4.5;
-
         public WorldWorker(World world) : base(world)
         {
         }
