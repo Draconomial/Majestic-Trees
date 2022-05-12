@@ -40,7 +40,7 @@
 			</Operation>
 			
 
-			<!-- Add a mod extension to mark it transparent and leafless -->
+			<!-- Make them leafless -->
 			<Operation Class="PatchOperationAdd">
 				<xpath>/Defs/ThingDef[defName="Plant_TreeGauranlen" or defName="Plant_TreeAnima" or defName="Plant_TreeBamboo" or defName="Plant_TreeBirch" or defName="Plant_TreeCecropia" or defName="Plant_TreeCypress" or defName="Plant_TreeDrago" or defName="Plant_TreeMaple" or defName="Plant_TreeOak" or defName="Plant_TreePalm" or defName="Plant_TreePoplar" or defName="Plant_TreeWillow"]/modExtensions/li[@Class="COMIGOMajesticTrees.PlantExtension"]</xpath>
 				<value>
