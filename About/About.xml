@@ -9,6 +9,7 @@
     </supportedVersions>
     <loadAfter>
         <li>sarg.alphabiomes</li>
+        <li>ReGrowth.BOTR.AspenForest</li>
         <li>Imranfish.XMLExtensions</li>
     </loadAfter>
     <modDependencies>
