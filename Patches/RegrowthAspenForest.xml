@@ -13,16 +13,13 @@
                     <operations>
                         <!-- Reset default drawing layer to Pawn, to hide buildings, chunks and items. -->
                         <li Class="PatchOperationAdd">
-                            <success>Normal</success>
                             <xpath>/Defs/ThingDef[defName="RG-AF_Plant_TreeAspenRed" or defName="RG-AF_Plant_TreeAspenYellow"]</xpath>
                             <value>
                                 <altitudeLayer>Pawn</altitudeLayer>
-                                <thingClass>COMIGOMajesticTrees.MajesticTree</thingClass>
                             </value>
                         </li>
                         <!-- Add custom default tree size range -->
                         <li Class="PatchOperationAdd">
-                            <success>Normal</success>
                             <xpath>/Defs/ThingDef[defName="RG-AF_Plant_TreeAspenRed" or defName="RG-AF_Plant_TreeAspenYellow"]/plant</xpath>
                             <value>
                                 <visualSizeRange>0.9~5.0</visualSizeRange>
@@ -30,21 +27,21 @@
                         </li>
                         <!-- Thinner shadows -->
                         <li Class="PatchOperationReplace">
-                            <success>Normal</success>
                             <xpath>/Defs/ThingDef[defName="RG-AF_Plant_TreeAspenRed" or defName="RG-AF_Plant_TreeAspenYellow"]/graphicData/shadowData/volume</xpath>
                             <value>
                                 <volume>(0.1, 0.35, 0.1)</volume>
                             </value>
                         </li>
-                        <!-- Remove the instruction to use random textures.
-                            Neither I want to draw variants, nor I want to duplicate textures to overwrite the vanilla ones. -->
-                        <li Class="PatchOperationReplace">
-                            <success>Normal</success>
-                            <xpath>/Defs/ThingDef[defName="RG-AF_Plant_TreeAspenRed" or defName="RG-AF_Plant_TreeAspenYellow"]/graphicData/graphicClass</xpath>
-                            <value>
-                                <graphicClass>Graphic_Single</graphicClass>
-                            </value>
-                        </li>
+						
+						<!-- Add a mod extension to mark it transparent -->
+						<li Class="PatchOperationAddModExtension">
+							<xpath>/Defs/ThingDef[defName="RG-AF_Plant_TreeAspenRed" or defName="RG-AF_Plant_TreeAspenYellow"]</xpath>
+							<value>
+								<li Class="COMIGOMajesticTrees.PlantExtension">
+									<makeTransparent>true</makeTransparent>
+								</li>
+							</value>
+						</li>
                     </operations>
                 </match>
             </Operation>
